@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Movie Watchlist Site</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Verdana, sans-serif;
+      background: #fbfbfb;
+      color: #2c2c2c;
+    }
+
+    .navbarBox {
+      background-color: #1f1f1f;
+      color: #eee;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navLogo {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .navLinks a {
+      color: white;
+      text-decoration: none;
+      margin-right: 10px;
+      padding: 4px;
+    }
+
+    .navLinks a:hover {
+      background: #333;
+      border-radius: 3px;
+    }
+
+    #modeCheck {
+      display: none;
+    }
+
+    #modeBtn {
+      position: fixed;
+      top: 58px;
+      right: 15px;
+      z-index: 99;
+    }
+
+    .darkLabel {
+      background: #444;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    #mainHero {
+      margin-top: 70px;
+      padding: 25px;
+      background: #ececec;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .heroText h2 {
+      font-size: 26px;
+    }
+
+    .heroText p {
+      margin: 10px 0;
+    }
+
+    .heroText a {
+      background: orange;
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .heroImg img {
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .movieZone, .showZone {
+      padding: 20px;
+    }
+
+    .cardBox {
+      background: white;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      border-radius: 4px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardBox img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .cardBox h4 {
+      margin: 8px 0;
+    }
+
+    .cardBox small {
+      color: #777;
+    }
+
+    .reviewArea {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .reviewItem {
+      background: #fff;
+      padding: 12px;
+      border-radius: 5px;
+      width: 220px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .reviewForm form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .reviewForm input, .reviewForm textarea {
+      padding: 7px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .reviewForm button {
+      background: #333;
+      color: white;
+      padding: 7px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: #eee;
+      margin-top: 20px;
+    }
+
+    body:has(#modeCheck:checked) {
+      background: #111;
+      color: #eee;
+    }
+
+    body:has(#modeCheck:checked) .navbarBox,
+    body:has(#modeCheck:checked) footer {
+      background: #000;
+    }
+
+    body:has(#modeCheck:checked) .cardBox,
+    body:has(#modeCheck:checked) .reviewItem {
+      background: #1c1c1c;
+      color: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      #mainHero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cardBox, .reviewItem {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <input type="checkbox" id="modeCheck" hidden>
+  <label for="modeCheck" class="darkLabel" id="modeBtn">Switch Mode</label>
+
+  
+  <div class="navbarBox">
+    <div class="navLogo">WatchFlix</div>
+    <div class="navLinks">
+      <a href="#mainHero">Home</a>
+      <a href="#trendSec">Trending</a>
+      <a href="#showSec">Popular</a>
+      <a href="#revSec">Reviews</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div id="mainHero">
+    <div class="heroText">
+      <h2>Welcome to WatchFlix</h2>
+      <p>Here you can discover cool movies and TV shows.</p>
+      <a href="#trendSec">Explore Now</a>
+    </div>
+    <div class="heroImg">
+      <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SL1024_.jpg" alt="Avengers Endgame Poster">
+    </div>
+  </div>
+
+  <!-- Trending Movies -->
+  <div id="trendSec" class="movieZone">
+    <h3>Trending Movies</h3>
+    <div class="cardBox">
+      <img src="https://m.media-amazon.com/images/I/91ebheR2L2L._AC_SL1500_.jpg" alt="Inception">
+      <h4>Inception</h4>
+      <p>A dream within a dream thriller.</p>
+      <small>2h 28m</small>
+    </div>
+  </div>
+
+  <!-- Popular Shows -->
+  <div id="showSec" class="showZone">
+    <h3>Popular Shows</h3>
+    <div class="cardBox">
+      <img src="https://m.media-amazon.com/images/I/81ezEz6zOrL._AC_SY741_.jpg" alt="Stranger Things">
+      <h4>Stranger Things</h4>
+      <p>Mystery and sci-fi thriller series.</p>
+      <small>4 seasons</small>
+    </div>
+  </div>
+
+  <!-- User Reviews -->
+  <div id="revSec" class="reviewArea">
+    <div class="reviewItem">
+      <p><b>Ani:</b> "Loved this website, so easy to use!"</p>
+    </div>
+    <div class="reviewForm">
+      <form>
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="Your email">
+        <textarea placeholder="What did you like?"></textarea>
+        <button type="submit">Send Review</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 WatchFlix Media Project</p>
+    <a href="#mainHero" style="color: lightblue;">Go to top</a>
+  </footer>
+</body>
+</html>
